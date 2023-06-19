@@ -1,0 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+}
+
+main {
+  margin: 20px;
+}
+
+article {
+  margin-bottom: 40px;
+}
+
+article h2 {
+  margin-top: 0;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.product-card {
+  margin-bottom: 20px;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.product-form {
+  width: 200px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+#listaCarrito {
+  list-style: none;
+  padding: 0;
+}
+
+#carritoTotal {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+#formCompraFinal label {
+  display: block;
+  margin-top: 10px;
+}
+
+#botonCompraFinal {
+  margin-top: 10px;
+}
+
+#formCompraFinal {
+  margin-top: 20px;
+}
+
+#formCompraFinal h3,
+#formCompraFinal label,
+#formCompraFinal input[type="text"],
+#formCompraFinal input[type="email"],
+#formCompraFinal input[type="number"],
+#formCompraFinal input[type="submit"] {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#formCompraFinal input[type="submit"] {
+  margin-top: 10px;
+}
+
+
+.li-productos{
+  margin: 20px;
+} 
+
+#listaCarrito li button {
+  float: right;
+  margin-right: 10px;
+} 
