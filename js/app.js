@@ -61,7 +61,7 @@ async function obtenerProductos() {
       card.classList.add("product-card");
   
       const img = document.createElement("img");
-      img.src = `img/producto${producto.id}.jpg`;
+      img.src = `tienda.github.io/img/producto${producto.id}.jpg`;
       img.alt = producto.nombre;
   
       const titulo = document.createElement("h3");
