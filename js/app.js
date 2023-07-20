@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Función para obtener los productos mediante Fetch
 async function obtenerProductos() {
   try {
-      let respuesta = await fetch('/productos.json');
+      let respuesta = await fetch('/js/productos.json');
       if (respuesta.ok) {
           let data = await respuesta.json();
           productos = data;
@@ -61,7 +61,7 @@ async function obtenerProductos() {
       card.classList.add("product-card");
   
       const img = document.createElement("img");
-      img.src = `/img/producto${producto.id}.jpg`;
+      img.src = `img/producto${producto.id}.jpg`;
       img.alt = producto.nombre;
   
       const titulo = document.createElement("h3");
