@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Función para obtener los productos mediante Fetch
 async function obtenerProductos() {
   try {
-      let respuesta = await fetch('../productos.json');
+      let respuesta = await fetch('/productos.json');
       if (respuesta.ok) {
           let data = await respuesta.json();
           productos = data;
