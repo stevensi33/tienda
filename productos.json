@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "nombre": "Tenis Fresh Free Edition",
+    "precio": 100,
+    "tipo": "Tenis"
+  },
+  {
+    "id": 2,
+    "nombre": "Tenis Terrex Free Edition",
+    "precio": 30,
+    "tipo": "Tenis"
+  },
+  {
+    "id": 3,
+    "nombre": "Tenis Free Tex Running",
+    "precio": 20,
+    "tipo": "Tenis"
+  },
+  {
+    "id": 4,
+    "nombre": "Tenis London Free Edition",
+    "precio": 120,
+    "tipo": "Tenis"
+  },
+  {
+    "id": 5,
+    "nombre": "Camiseta Nature Edition",
+    "precio": 25,
+    "tipo": "Camiseta"
+  },
+  {
+    "id": 6,
+    "nombre": "Camiseta Athletics Edition",
+    "precio": 15,
+    "tipo": "Camiseta"
+  },
+  {
+    "id": 7,
+    "nombre": "Camiseta Athletics Edition",
+    "precio": 550,
+    "tipo": "Camiseta"
+  },
+  {
+    "id": 8,
+    "nombre": "Camiseta Nature Edition",
+    "precio": 600,
+    "tipo": "Camiseta"
+  },
+  {
+    "id": 9,
+    "nombre": "Short State Edition",
+    "precio": 300,
+    "tipo": "Short"
+  },
+  {
+    "id": 10,
+    "nombre": "Short Athletics",
+    "precio": 250,
+    "tipo": "Short"
+  },
+  {
+    "id": 11,
+    "nombre": "Short Athletics",
+    "precio": 280,
+    "tipo": "Short"
+  },
+  {
+    "id": 12,
+    "nombre": "Short Nature Edition",
+    "precio": 320,
+    "tipo": "Short"
+  },
+  {
+    "id": 13,
+    "nombre": "Tenis Running Edition",
+    "precio": 2100,
+    "tipo": "Tenis"
+  },
+  {
+    "id": 14,
+    "nombre": "Tenis Sport Tex Edition",
+    "precio": 1900,
+    "tipo": "Tenis"
+  },
+  {
+    "id": 15,
+    "nombre": "Tenis LifeStyle Edition",
+    "precio": 2300,
+    "tipo": "Tenis"
+  },
+  {
+    "id": 16,
+    "nombre": "Tenis LifeStye Edition",
+    "precio": 2500,
+    "tipo": "Tenis"
+  }
+]

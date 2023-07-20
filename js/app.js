@@ -1,53 +1,42 @@
-// Clase Producto
-class Producto {
-    constructor(id, nombre, precio, tipo) {
-      this.id = id;
-      this.nombre = nombre;
-      this.precio = precio;
-      this.tipo = tipo;
-    }
+// Array de productos
+let productos = [];
+
+// Obtener elementos del DOM
+const contenedorProductos = document.getElementById("contenedorProductos");
+const tipoProducto = document.getElementById("tipoProducto");
+const listaCarrito = document.getElementById("listaCarrito");
+const carritoTotal = document.getElementById("carritoTotal");
+const formCompraFinal = document.getElementById("formCompraFinal");
+
+let carrito = [];
+
+// Cargar productos al iniciar la página
+document.addEventListener("DOMContentLoaded", () => {
+  obtenerProductos(); // Obtener productos mediante Fetch
+  
+  // Verificar si hay productos en el carrito almacenados en el local storage
+  if (localStorage.getItem("carrito")) {
+    carrito = JSON.parse(localStorage.getItem("carrito"));
+    actualizarCarrito();
   }
-  
-  // Array de productos
-  const productos = [
-    new Producto(1, "Tenis Fresh Free Edition", 100, "Tenis"),
-    new Producto(2, "Tenis Terrex Free Edition", 30, "Tenis"),
-    new Producto(3, "Tenis Free Tex Running", 20, "Tenis"),
-    new Producto(4, "Tenis London Free Edition", 120, "Tenis"),
-    new Producto(5, "Camiseta Nature Edition", 25, "Camiseta"),
-    new Producto(6, "Camiseta Athletics Edition", 15, "Camiseta"),
-    new Producto(7, "Camiseta Athletics Edition", 550, "Camiseta"), 
-    new Producto(8, "Camiseta Nature Edition", 600, "Camiseta"),
-    new Producto(9, "Short State Edition", 300, "Short"), 
-    new Producto(10, "Short Athletics", 250, "Short"), 
-    new Producto(11, "Short Athletics", 280, "Short"), 
-    new Producto(12, "Short Nature Edition", 320, "Short"), 
-    new Producto(13, "Tenis Running Edition", 2100, "Tenis"), 
-    new Producto(14, "Tenis Sport Tex Edition", 1900, "Tenis"), 
-    new Producto(15, "Tenis LifeStyle Edition", 2300, "Tenis"), 
-    new Producto(16, "Tenis LifeStye Edition", 2500, "Tenis")
-  ];
-  
-  // Obtener elementos del DOM
-  const contenedorProductos = document.getElementById("contenedorProductos");
-  const tipoProducto = document.getElementById("tipoProducto");
-  const listaCarrito = document.getElementById("listaCarrito");
-  const carritoTotal = document.getElementById("carritoTotal");
-  const formCompraFinal = document.getElementById("formCompraFinal");
-  
-  let carrito = [];
-  
-  // Cargar productos al iniciar la página
-  document.addEventListener("DOMContentLoaded", () => {
-    mostrarProductos(productos);
-  
-    // Verificar si hay productos en el carrito almacenados en el local storage
-    if (localStorage.getItem("carrito")) {
-      carrito = JSON.parse(localStorage.getItem("carrito"));
-      actualizarCarrito();
-    }
-  });
-  
+});
+
+// Función para obtener los productos mediante Fetch
+async function obtenerProductos() {
+  try {
+      let respuesta = await fetch('../productos.json');
+      if (respuesta.ok) {
+          let data = await respuesta.json();
+          productos = data;
+          mostrarProductos(productos);
+      } else {
+          console.error('Error al obtener los productos:', respuesta.statusText);
+      }
+  } catch (error) {
+      console.error('Hubo un error al obtener los productos:', error);
+  }
+}
+
   // Mostrar productos según el tipo seleccionado
   tipoProducto.addEventListener("change", () => {
     const tipoSeleccionado = tipoProducto.value;
@@ -110,7 +99,18 @@ class Producto {
     localStorage.setItem("carrito", JSON.stringify(carrito));
   
     actualizarCarrito();
+
+    //notificación con Toastify
+    Toastify({
+      text: `El Producto ${productoSeleccionado.nombre} ha sido agregado al carrito`,
+      duration: 3000,
+      close: true,
+      gravity: "top", 
+      position: 'right', 
+      backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+    }).showToast();
   }
+  
   
  
   // Función para generar los elementos de la lista del carrito
@@ -148,7 +148,7 @@ function generarListaCarrito() {
   
   // Llama a la función generarListaCarrito después de actualizar el carrito
   function actualizarCarrito() {
-    // ...
+    
     generarListaCarrito();
     calcularTotal();
   }
@@ -167,11 +167,32 @@ function generarListaCarrito() {
   // Finalizar compra
   formCompraFinal.addEventListener("submit", (evento) => {
     evento.preventDefault();
+
+    // Verificar si el carrito está vacío
+    if (carrito.length === 0) {
+      Swal.fire({
+        icon: 'info',
+        title: 'Carrito vacío',
+        text: 'Debes agregar al menos un producto al carrito antes de finalizar la compra.',
+        confirmButtonText: 'OK'
+      });
+      return; 
+    }
+
+    // Notificación con SweetAlert
+    Swal.fire({
+      icon: 'success',
+      title: 'Compra Finalizada',
+      text: '¡Gracias por tu compra!',
+      confirmButtonText: 'OK'
+    });
     // Lógica para finalizar la compra...
     // Limpiar carrito y local storage
     carrito = [];
     localStorage.removeItem("carrito");
     actualizarCarrito();
     formCompraFinal.reset();
+
+    
   });
   
